@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="EmpleadosSet" EntityType="Model1.Empleados" />
+    <EntitySet Name="DepartamentosSet" EntityType="Model1.Departamentos" />
+    <EntitySet Name="CargosSet" EntityType="Model1.Cargos" />
+    <AssociationSet Name="CargosEmpleados" Association="Model1.CargosEmpleados">
+      <End Role="Cargos" EntitySet="CargosSet" />
+      <End Role="Empleados" EntitySet="EmpleadosSet" />
+    </AssociationSet>
+    <EntitySet Name="NominasSet" EntityType="Model1.Nominas" />
+    <EntitySet Name="SalidasSet" EntityType="Model1.Salidas" />
+    <AssociationSet Name="EmpleadosSalidas" Association="Model1.EmpleadosSalidas">
+      <End Role="Empleados" EntitySet="EmpleadosSet" />
+      <End Role="Salidas" EntitySet="SalidasSet" />
+    </AssociationSet>
+    <EntitySet Name="VacacionesSet" EntityType="Model1.Vacaciones" />
+    <AssociationSet Name="VacacionesEmpleados" Association="Model1.VacacionesEmpleados">
+      <End Role="Vacaciones" EntitySet="VacacionesSet" />
+      <End Role="Empleados" EntitySet="EmpleadosSet" />
+    </AssociationSet>
+    <EntitySet Name="PermisosSet" EntityType="Model1.Permisos" />
+    <EntitySet Name="LicenciasSet" EntityType="Model1.Licencias" />
+    <AssociationSet Name="EmpleadosLicencias" Association="Model1.EmpleadosLicencias">
+      <End Role="Empleados" EntitySet="EmpleadosSet" />
+      <End Role="Licencias" EntitySet="LicenciasSet" />
+    </AssociationSet>
+    <AssociationSet Name="EmpleadosPermisos" Association="Model1.EmpleadosPermisos">
+      <End Role="Empleados" EntitySet="EmpleadosSet" />
+      <End Role="Permisos" EntitySet="PermisosSet" />
+    </AssociationSet>
+    <AssociationSet Name="EmpleadosDepartamentos" Association="Model1.EmpleadosDepartamentos">
+      <End Role="Empleados" EntitySet="EmpleadosSet" />
+      <End Role="Departamentos" EntitySet="DepartamentosSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Empleados">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoE" Type="Int16" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Apellido" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Telefono" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="NombreD" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Cargo" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Salario" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Estatus" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Cargos" Relationship="Model1.CargosEmpleados" FromRole="Empleados" ToRole="Cargos" />
+    <NavigationProperty Name="Salidas" Relationship="Model1.EmpleadosSalidas" FromRole="Empleados" ToRole="Salidas" />
+    <NavigationProperty Name="Vacaciones" Relationship="Model1.VacacionesEmpleados" FromRole="Empleados" ToRole="Vacaciones" />
+    <NavigationProperty Name="Licencias" Relationship="Model1.EmpleadosLicencias" FromRole="Empleados" ToRole="Licencias" />
+    <NavigationProperty Name="Permisos" Relationship="Model1.EmpleadosPermisos" FromRole="Empleados" ToRole="Permisos" />
+    <NavigationProperty Name="Departamentos" Relationship="Model1.EmpleadosDepartamentos" FromRole="Empleados" ToRole="Departamentos" />
+  </EntityType>
+  <EntityType Name="Departamentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoD" Type="Int16" Nullable="false" />
+    <Property Name="NombreD" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Empleados" Relationship="Model1.EmpleadosDepartamentos" FromRole="Departamentos" ToRole="Empleados" />
+  </EntityType>
+  <EntityType Name="Cargos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cargo" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Empleados" Relationship="Model1.CargosEmpleados" FromRole="Cargos" ToRole="Empleados" />
+  </EntityType>
+  <Association Name="CargosEmpleados">
+    <End Type="Model1.Cargos" Role="Cargos" Multiplicity="*" />
+    <End Type="Model1.Empleados" Role="Empleados" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Nominas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Anio" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Mes" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Monto" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Salidas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoE" Type="Int16" Nullable="false" />
+    <Property Name="TipoSalida" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Motivo" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="FechaSalida" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Empleados" Relationship="Model1.EmpleadosSalidas" FromRole="Salidas" ToRole="Empleados" />
+  </EntityType>
+  <Association Name="EmpleadosSalidas">
+    <End Type="Model1.Empleados" Role="Empleados" Multiplicity="*" />
+    <End Type="Model1.Salidas" Role="Salidas" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Vacaciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoE" Type="Int16" Nullable="false" />
+    <Property Name="Desde" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Hasta" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Correspondiente" Type="Int16" Nullable="false" />
+    <Property Name="Comentarios" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Empleados" Relationship="Model1.VacacionesEmpleados" FromRole="Vacaciones" ToRole="Empleados" />
+  </EntityType>
+  <Association Name="VacacionesEmpleados">
+    <End Type="Model1.Vacaciones" Role="Vacaciones" Multiplicity="*" />
+    <End Type="Model1.Empleados" Role="Empleados" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Permisos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoE" Type="Int16" Nullable="false" />
+    <Property Name="Desde" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Hasta" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Comentarios" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Empleados" Relationship="Model1.EmpleadosPermisos" FromRole="Permisos" ToRole="Empleados" />
+  </EntityType>
+  <EntityType Name="Licencias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoE" Type="Int16" Nullable="false" />
+    <Property Name="Desde" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Hasta" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Motivo" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Comentarios" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Empleados" Relationship="Model1.EmpleadosLicencias" FromRole="Licencias" ToRole="Empleados" />
+  </EntityType>
+  <Association Name="EmpleadosLicencias">
+    <End Type="Model1.Empleados" Role="Empleados" Multiplicity="*" />
+    <End Type="Model1.Licencias" Role="Licencias" Multiplicity="*" />
+  </Association>
+  <Association Name="EmpleadosPermisos">
+    <End Type="Model1.Empleados" Role="Empleados" Multiplicity="*" />
+    <End Type="Model1.Permisos" Role="Permisos" Multiplicity="*" />
+  </Association>
+  <Association Name="EmpleadosDepartamentos">
+    <End Type="Model1.Empleados" Role="Empleados" Multiplicity="*" />
+    <End Type="Model1.Departamentos" Role="Departamentos" Multiplicity="*" />
+  </Association>
+</Schema>

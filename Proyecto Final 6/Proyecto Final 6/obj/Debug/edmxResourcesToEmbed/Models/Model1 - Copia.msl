@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="EmpleadosSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Empleados)">
+        <MappingFragment StoreEntitySet="EmpleadosSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CodigoE" ColumnName="CodigoE" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="NombreD" ColumnName="NombreD" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="Salario" ColumnName="Salario" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepartamentosSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Departamentos)">
+        <MappingFragment StoreEntitySet="DepartamentosSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CodigoD" ColumnName="CodigoD" />
+          <ScalarProperty Name="NombreD" ColumnName="NombreD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CargosSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Cargos)">
+        <MappingFragment StoreEntitySet="CargosSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NominasSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Nominas)">
+        <MappingFragment StoreEntitySet="NominasSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Anio" ColumnName="Anio" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalidasSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Salidas)">
+        <MappingFragment StoreEntitySet="SalidasSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CodigoE" ColumnName="CodigoE" />
+          <ScalarProperty Name="TipoSalida" ColumnName="TipoSalida" />
+          <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+          <ScalarProperty Name="FechaSalida" ColumnName="FechaSalida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VacacionesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Vacaciones)">
+        <MappingFragment StoreEntitySet="VacacionesSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CodigoE" ColumnName="CodigoE" />
+          <ScalarProperty Name="Desde" ColumnName="Desde" />
+          <ScalarProperty Name="Hasta" ColumnName="Hasta" />
+          <ScalarProperty Name="Correspondiente" ColumnName="Correspondiente" />
+          <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PermisosSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Permisos)">
+        <MappingFragment StoreEntitySet="PermisosSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CodigoE" ColumnName="CodigoE" />
+          <ScalarProperty Name="Desde" ColumnName="Desde" />
+          <ScalarProperty Name="Hasta" ColumnName="Hasta" />
+          <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LicenciasSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Licencias)">
+        <MappingFragment StoreEntitySet="LicenciasSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CodigoE" ColumnName="CodigoE" />
+          <ScalarProperty Name="Desde" ColumnName="Desde" />
+          <ScalarProperty Name="Hasta" ColumnName="Hasta" />
+          <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+          <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CargosEmpleados" TypeName="Model1.CargosEmpleados" StoreEntitySet="CargosEmpleados">
+      <EndProperty Name="Cargos">
+        <ScalarProperty Name="Id" ColumnName="Cargos_Id" />
+      </EndProperty>
+      <EndProperty Name="Empleados">
+        <ScalarProperty Name="Id" ColumnName="Empleados_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EmpleadosSalidas" TypeName="Model1.EmpleadosSalidas" StoreEntitySet="EmpleadosSalidas">
+      <EndProperty Name="Empleados">
+        <ScalarProperty Name="Id" ColumnName="Empleados_Id" />
+      </EndProperty>
+      <EndProperty Name="Salidas">
+        <ScalarProperty Name="Id" ColumnName="Salidas_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VacacionesEmpleados" TypeName="Model1.VacacionesEmpleados" StoreEntitySet="VacacionesEmpleados">
+      <EndProperty Name="Vacaciones">
+        <ScalarProperty Name="Id" ColumnName="Vacaciones_Id" />
+      </EndProperty>
+      <EndProperty Name="Empleados">
+        <ScalarProperty Name="Id" ColumnName="Empleados_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EmpleadosLicencias" TypeName="Model1.EmpleadosLicencias" StoreEntitySet="EmpleadosLicencias">
+      <EndProperty Name="Empleados">
+        <ScalarProperty Name="Id" ColumnName="Empleados_Id" />
+      </EndProperty>
+      <EndProperty Name="Licencias">
+        <ScalarProperty Name="Id" ColumnName="Licencias_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EmpleadosPermisos" TypeName="Model1.EmpleadosPermisos" StoreEntitySet="EmpleadosPermisos">
+      <EndProperty Name="Empleados">
+        <ScalarProperty Name="Id" ColumnName="Empleados_Id" />
+      </EndProperty>
+      <EndProperty Name="Permisos">
+        <ScalarProperty Name="Id" ColumnName="Permisos_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EmpleadosDepartamentos" TypeName="Model1.EmpleadosDepartamentos" StoreEntitySet="EmpleadosDepartamentos">
+      <EndProperty Name="Empleados">
+        <ScalarProperty Name="Id" ColumnName="Empleados_Id" />
+      </EndProperty>
+      <EndProperty Name="Departamentos">
+        <ScalarProperty Name="Id" ColumnName="Departamentos_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
