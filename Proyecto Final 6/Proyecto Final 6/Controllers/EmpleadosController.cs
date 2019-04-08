@@ -20,6 +20,28 @@ namespace Proyecto_Final_6.Controllers
             return View(db.EmpleadosSet.ToList());
         }
 
+        public ActionResult EmpleadoActivo()
+        {
+            var query = (from a in db.EmpleadosSet
+                         where a.Estatus == "Activo"
+                         select a).Include(e => e.Cargos).Include(k => k.Departamentos);
+
+
+            return View(query.ToList());
+        }
+
+
+
+        public ActionResult EmpleadoInactivo()
+        {
+            var query = (from a in db.EmpleadosSet
+                         where a.Estatus == "Inactivo"
+                         select a).Include(e => e.Cargos).Include(k => k.Departamentos);
+
+
+            return View(query.ToList());
+        }
+
         // GET: Empleados/Details/5
         public ActionResult Details(int? id)
         {

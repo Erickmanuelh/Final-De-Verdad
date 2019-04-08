@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using Proyecto_Final_6.Models;
 
 namespace Proyecto_Final_6.Controllers
@@ -18,6 +19,30 @@ namespace Proyecto_Final_6.Controllers
         public ActionResult Index()
         {
             return View(db.PermisosSet.ToList());
+        }
+
+        public ActionResult PermisosBusqueda(string searchString)
+        {
+
+            var students = from s in db.PermisosSet
+                           select s;
+
+
+           // students = students.Where(p => p.CodigoE.Equals(iQ));
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+              //   students = students.Where(s => s.CodigoE == Convert.ToInt16(searchString));
+                   students = students.Where(r => r.CodigoE.ToString() == searchString);
+              //  int iQ = int.Parse(searchString);
+               // students = students.Where(p => p.CodigoE.Equals(iQ));
+
+            }
+
+            // students = students.Where(r => r.CodigoE.ToString() == searchString);
+
+
+            return View(students.ToList());
         }
 
         // GET: Permisos/Details/5

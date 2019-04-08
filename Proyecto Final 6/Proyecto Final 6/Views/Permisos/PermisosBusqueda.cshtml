@@ -1,11 +1,14 @@
-﻿@{
-    ViewBag.Title = "Totalizar";
+﻿@model IEnumerable<Proyecto_Final_6.Models.Permisos>
+@{
+    ViewBag.Title = "Index";
 }
-
+@{
+    ViewBag.Title = "Totalizar";
+    Layout = "";
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 
     <!-- Required Meta Tags -->
     <meta charset="UTF-8">
@@ -14,21 +17,14 @@
     <!-- Page Title -->
     <title>About</title>
     @Styles.Render("~/Content/css")
-
     <style>
+
         .heading {
             color: #FFFFFF;
         }
-
-        .naranja {
-            color: #ff8000
-        }
     </style>
-
 </head>
 <body>
-    @RenderBody()
-
     <!-- Preloader Starts -->
     <div class="preloader">
         <div class="spinner"></div>
@@ -49,10 +45,8 @@
                         </div>
                         <div class="main-menu main-menu-light">
 
-
                             <ul>
                                 <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-
                                 <li>
                                     <a href="#">Crear</a>
                                     <ul class="sub-menu">
@@ -66,9 +60,7 @@
                                         <li>@Html.ActionLink("Vacaciones", "Create", "Vacaciones")</li>
                                     </ul>
                                 </li>
-
                                 <li>
-
                                     <a href="#">Informes</a>
                                     <ul class="sub-menu">
                                         <li>@Html.ActionLink("Empleado", "Index", "Empleados")</li>
@@ -80,16 +72,8 @@
                                         <li>@Html.ActionLink("Permiso", "Index", "Permisos")</li>
                                         <li>@Html.ActionLink("Licencia", "Index", "Licencias")</li>
                                         <li>@Html.ActionLink("Vacaciones", "Index", "Vacaciones")</li>
-
-                                        <li>@Html.ActionLink("EmpleadosActivos", "EmpleadoActivo", "Empleados")</li>
-                                        <li>@Html.ActionLink("EmpleadosInactivos", "EmpleadoInactivo", "Empleados")</li>
-                                        <li>@Html.ActionLink("PermisosBusqueda", "PermisosBusqueda", "Permisos")</li>
-                                        <li>@Html.ActionLink("SalidasMes", "SalidasMes", "Salidas")</li>
-
-
-
                                     </ul>
-                                </li>                           
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -100,10 +84,50 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
+                        <h2>Inicio</h2>  
+                        <form>
+                            Buscar:@Html.TextBox("searchString")
+                            <input type="submit" id="btnSubmit" value="Search" />
 
-                                                            <h2> Bienvenidos a nuestro <font color="#ff8000">trabajo final</font>, Hecho por 20174985 y 20174979 </h2>
-                                           
-                                                        
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        <p> @Html.DisplayNameFor(model => model.CodigoE)</p>
+                                    </th>
+                                    <th>
+                                        <p>  @Html.DisplayNameFor(model => model.Desde)</p>
+                                    </th>
+                                    <th>
+                                        <p>   @Html.DisplayNameFor(model => model.Hasta)</p>
+                                    </th>
+                                    <th>
+                                        <p>   @Html.DisplayNameFor(model => model.Comentarios)</p>
+                                    </th>
+                                    <th></th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <p>   @Html.DisplayFor(modelItem => item.CodigoE)</p>
+                                        </td>
+                                        <td>
+                                            <p>  @Html.DisplayFor(modelItem => item.Desde)</p>
+                                        </td>
+                                        <td>
+                                            <p>  @Html.DisplayFor(modelItem => item.Hasta)</p>
+                                        </td>
+                                        <td>
+                                            <p> @Html.DisplayFor(modelItem => item.Comentarios)</p>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+                            </form>
+</div>
+                </div>
             </div>
         </div>
     </header>
@@ -139,7 +163,6 @@
     </footer>
     <!-- Footer Area End -->
     <!-- Javascript -->
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
 </body>

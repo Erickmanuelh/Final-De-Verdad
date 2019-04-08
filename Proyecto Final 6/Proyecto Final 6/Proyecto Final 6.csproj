@@ -419,6 +419,10 @@
     <Content Include="Views\Permisos\Details.cshtml" />
     <Content Include="Views\Permisos\Edit.cshtml" />
     <Content Include="Views\Permisos\Index.cshtml" />
+    <Content Include="Views\Empleados\EmpleadoActivo.cshtml" />
+    <Content Include="Views\Empleados\EmpleadoInactivo.cshtml" />
+    <Content Include="Views\Permisos\PermisosBusqueda.cshtml" />
+    <Content Include="Views\Salidas\SalidasMes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
