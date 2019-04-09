@@ -423,6 +423,7 @@
     <Content Include="Views\Empleados\EmpleadoInactivo.cshtml" />
     <Content Include="Views\Permisos\PermisosBusqueda.cshtml" />
     <Content Include="Views\Salidas\SalidasMes.cshtml" />
+    <Content Include="Views\Empleados\EntradaMes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

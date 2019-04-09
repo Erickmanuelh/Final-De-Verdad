@@ -1,89 +1,105 @@
-﻿@model Proyecto_Final_6.Models.Cargos
-@{
-    ViewBag.Title = "Details";
-    Layout = "";
-}
-<!DOCTYPE html>
-<html lang="en">
-<head>
+﻿<font size="3" face="Courier, monospace	">
+    @model Proyecto_Final_6.Models.Cargos
+    @{
+        ViewBag.Title = "Details";
+        Layout = "";
+    }
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
 
-    <!-- Required Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Page Title -->
-    <title>About</title>
-    @Styles.Render("~/Content/css")
-    <style>
+        <!-- Required Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- Page Title -->
+        <title>About</title>
+        @Styles.Render("~/Content/css")
+        <style>
 
-        .heading {
-            color: #FFFFFF;
-        }
-    </style>
-</head>
-<body>
-    <!-- Preloader Starts -->
-    <div class="preloader">
-        <div class="spinner"></div>
-    </div>
-    <!-- Preloader End -->
-    <!-- Header Area Starts -->
-    <header class="header-area single-page">
-        <div class="header-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-2">
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="custom-navbar">
-                            <span></span>
-                            <span></span>
-                            <span></span>
+            .heading {
+                color: #FFFFFF;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Preloader Starts -->
+        <div class="preloader">
+            <div class="spinner"></div>
+        </div>
+        <!-- Preloader End -->
+        <!-- Header Area Starts -->
+        <header class="header-area single-page">
+            <div class="header-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-2">
                         </div>
-                        <div class="main-menu main-menu-light">
+                        <div class="col-lg-10">
+                            <div class="custom-navbar">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="main-menu main-menu-light">
 
-                            <ul>
-                                <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                                <li>
-                                    <a href="#">Crear</a>
-                                    <ul class="sub-menu">
-                                        <li>@Html.ActionLink("Empleado", "Create", "Empleados")</li>
-                                        <li>@Html.ActionLink("Departamento", "Create", "Departamentos")</li>
-                                        <li>@Html.ActionLink("Cargo", "Create", "Cargos")</li>
-                                        <li>@Html.ActionLink("Nomina", "Create", "Nominas")</li>
-                                        <li>@Html.ActionLink("Salida", "Create", "Salidas")</li>
-                                        <li>@Html.ActionLink("Permiso", "Create", "Permisos")</li>
-                                        <li>@Html.ActionLink("Licencia", "Create", "Licencias")</li>
-                                        <li>@Html.ActionLink("Vacaciones", "Create", "Vacaciones")</li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Informes</a>
-                                    <ul class="sub-menu">
-                                        <li>@Html.ActionLink("Empleado", "Index", "Empleados")</li>
-                                        <li>@Html.ActionLink("Departamento", "Index", "Departamentos")</li>
-                                        <li>@Html.ActionLink("Cargo", "Index", "Cargos")</li>
-                                        <li>@Html.ActionLink("Nominas", "Index", "Nominas")</li>
-                                        <li>@Html.ActionLink("NominaTotal", "Totalizar", "Nominas")</li>
-                                        <li>@Html.ActionLink("Salida", "Index", "Salidas")</li>
-                                        <li>@Html.ActionLink("Permiso", "Index", "Permisos")</li>
-                                        <li>@Html.ActionLink("Licencia", "Index", "Licencias")</li>
-                                        <li>@Html.ActionLink("Vacaciones", "Index", "Vacaciones")</li>
-                                    </ul>
-                                </li>
-                            </ul>
+                                <ul>
+                                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                                    <li>
+                                        <a href="#">Crear</a>
+                                        <ul class="sub-menu">
+                                            <li>@Html.ActionLink("Empleado", "Create", "Empleados")</li>
+                                            <li>@Html.ActionLink("Departamento", "Create", "Departamentos")</li>
+                                            <li>@Html.ActionLink("Cargo", "Create", "Cargos")</li>
+                                            <li>@Html.ActionLink("Nomina", "Create", "Nominas")</li>
+                                            <li>@Html.ActionLink("Salida", "Create", "Salidas")</li>
+                                            <li>@Html.ActionLink("Permiso", "Create", "Permisos")</li>
+                                            <li>@Html.ActionLink("Licencia", "Create", "Licencias")</li>
+                                            <li>@Html.ActionLink("Vacaciones", "Create", "Vacaciones")</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Informes</a>
+                                        <ul class="sub-menu">
+                                            <li>@Html.ActionLink("Empleado", "Index", "Empleados")</li>
+                                            <li>@Html.ActionLink("Departamento", "Index", "Departamentos")</li>
+                                            <li>@Html.ActionLink("Cargo", "Index", "Cargos")</li>
+                                            <li>@Html.ActionLink("Nominas", "Index", "Nominas")</li>
+                                            <li>@Html.ActionLink("NominaTotal", "Totalizar", "Nominas")</li>
+                                            <li>@Html.ActionLink("Salida", "Index", "Salidas")</li>
+                                            <li>@Html.ActionLink("Permiso", "Index", "Permisos")</li>
+                                            <li>@Html.ActionLink("Licencia", "Index", "Licencias")</li>
+                                            <li>@Html.ActionLink("Vacaciones", "Index", "Vacaciones")</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+
+                                        <a href="#">Busquedas</a>
+                                        <ul class="sub-menu">
+
+                                            <li>@Html.ActionLink("Empleados Activos", "EmpleadoActivo", "Empleados")</li>
+                                            <li>@Html.ActionLink("Empleados Inactivos", "EmpleadoInactivo", "Empleados")</li>
+                                            <li>@Html.ActionLink("Permisos Busqueda", "PermisosBusqueda", "Permisos")</li>
+                                            <li>@Html.ActionLink("Salidas Mes", "SalidasMes", "Salidas")</li>
+                                            <li>@Html.ActionLink("Entrada Mes", "EntradaMes", "Empleados")</li>
+
+
+
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="page-title text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 offset-md-3">
+            <div class="page-title text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3">
 
-                        <h2>Detalles</h2>
-                        
+                            <h2>Detalles</h2>
+
                             <dl class="dl-horizontal">
                                 <dt>
                                     <p>  @Html.DisplayNameFor(model => model.Cargo)</p>
@@ -92,50 +108,50 @@
                                     <p> @Html.DisplayFor(model => model.Cargo)</p>
                                 </dd>
                             </dl>
-                       
-                        <p>
-                            @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
-                            @Html.ActionLink("Volver", "Index")
-                        </p>
 
+                            <p>
+                                @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+                                @Html.ActionLink("Volver", "Index")
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Header Area End -->
+        <!-- Feature Area Starts -->
+        </div>
+        </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6">
+                        <span>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | Trabajo hecho por 20174985 y 20174979 <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </span>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="social-icons">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
-    <!-- Header Area End -->
-    <!-- Feature Area Starts -->
-    </div>
-    </div>
-    </div>
-    <div class="footer-copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-6">
-                    <span>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> All rights reserved | Trabajo hecho por 20174985 y 20174979 <i class="fa fa-heart-o" aria-hidden="true"></i>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </span>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="social-icons">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </footer>
-    <!-- Footer Area End -->
-    <!-- Javascript -->
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-</body>
+        </footer>
+        <!-- Footer Area End -->
+        <!-- Javascript -->
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+    </body>
 </html>

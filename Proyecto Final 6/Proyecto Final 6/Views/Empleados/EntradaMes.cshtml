@@ -1,13 +1,12 @@
 ﻿<font size="3" face="Courier, monospace	">
-
-    @model Proyecto_Final_6.Models.Vacaciones
-
+    @model IEnumerable<Proyecto_Final_6.Models.Empleados>
+    @{
+        ViewBag.Title = "Index";
+    }
     @{
         ViewBag.Title = "Totalizar";
         Layout = "";
     }
-
-
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -101,62 +100,77 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 offset-md-3">
-                            <h2>Estas seguro de borrarlo?</h2>
-                            <div>
-                                <h4></h4>
-                                <hr />
-                                <dl class="dl-horizontal">
-                                    <dt>
-                                        @Html.DisplayNameFor(model => model.CodigoE)
-                                    </dt>
+                            <h2>Inicio</h2>
+                            <p>
+                                <form>
+                                    Buscar:@Html.TextBox("searchString") <input type="submit" id="btnSubmit" value="Search" />
 
-                                    <dd>
-                                        @Html.DisplayFor(model => model.CodigoE)
-                                    </dd>
-
-                                    <dt>
-                                        @Html.DisplayNameFor(model => model.Desde)
-                                    </dt>
-
-                                    <dd>
-                                        @Html.DisplayFor(model => model.Desde)
-                                    </dd>
-
-                                    <dt>
-                                        @Html.DisplayNameFor(model => model.Hasta)
-                                    </dt>
-
-                                    <dd>
-                                        @Html.DisplayFor(model => model.Hasta)
-                                    </dd>
-
-                                    <dt>
-                                        @Html.DisplayNameFor(model => model.Correspondiente)
-                                    </dt>
-
-                                    <dd>
-                                        @Html.DisplayFor(model => model.Correspondiente)
-                                    </dd>
-
-                                    <dt>
-                                        @Html.DisplayNameFor(model => model.Comentarios)
-                                    </dt>
-
-                                    <dd>
-                                        @Html.DisplayFor(model => model.Comentarios)
-                                    </dd>
-
-                                </dl>
-                                @using (Html.BeginForm())
+                            </p>
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        <p>     @Html.DisplayNameFor(model => model.CodigoE) </p>
+                                    </th>
+                                    <th>
+                                        <p>    @Html.DisplayNameFor(model => model.Nombre)</p>
+                                    </th>
+                                    <th>
+                                        <p>     @Html.DisplayNameFor(model => model.Apellido)</p>
+                                    </th>
+                                    <th>
+                                        <p>    @Html.DisplayNameFor(model => model.Telefono)</p>
+                                    </th>
+                                    <th>
+                                        <p>   @Html.DisplayNameFor(model => model.NombreD)</p>
+                                    </th>
+                                    <th>
+                                        <p>   @Html.DisplayNameFor(model => model.Cargo)</p>
+                                    </th>
+                                    <th>
+                                        <p>   @Html.DisplayNameFor(model => model.FechaIngreso)</p>
+                                    </th>
+                                    <th>
+                                        <p>    @Html.DisplayNameFor(model => model.Salario)</p>
+                                    </th>
+                                    <th>
+                                        <p>   @Html.DisplayNameFor(model => model.Estatus)</p>
+                                    </th>
+                                    <th></th>
+                                </tr>
+                                @foreach (var item in Model)
                                 {
-                                    @Html.AntiForgeryToken()
-
-                                    <div class="form-actions no-color">
-                                        <input type="submit" value="Borrar" class="btn btn-default" /> |
-                                        @Html.ActionLink("Volver", "Index")
-                                    </div>
+                                    <tr>
+                                        <td>
+                                            <p>   @Html.DisplayFor(modelItem => item.CodigoE)</p>
+                                        </td>
+                                        <td>
+                                            <p>    @Html.DisplayFor(modelItem => item.Nombre)</p>
+                                        </td>
+                                        <td>
+                                            <p>    @Html.DisplayFor(modelItem => item.Apellido)</p>
+                                        </td>
+                                        <td>
+                                            <p>   @Html.DisplayFor(modelItem => item.Telefono)</p>
+                                        </td>
+                                        <td>
+                                            <p>   @Html.DisplayFor(modelItem => item.NombreD)</p>
+                                        </td>
+                                        <td>
+                                            <p>    @Html.DisplayFor(modelItem => item.Cargo)</p>
+                                        </td>
+                                        <td>
+                                            <p>    @Html.DisplayFor(modelItem => item.FechaIngreso)</p>
+                                        </td>
+                                        <td>
+                                            <p>    @Html.DisplayFor(modelItem => item.Salario)</p>
+                                        </td>
+                                        <td>
+                                            <p>   @Html.DisplayFor(modelItem => item.Estatus)</p>
+                                        </td>
+                                    </tr>
                                 }
-                            </div>
+                            </table>
+                            </form>
                         </div>
                     </div>
                 </div>

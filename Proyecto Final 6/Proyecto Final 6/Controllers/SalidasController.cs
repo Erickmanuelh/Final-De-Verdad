@@ -38,6 +38,11 @@ namespace Proyecto_Final_6.Controllers
         // GET: Salidas/Create
         public ActionResult Create()
         {
+            var CodigoE = db.EmpleadosSet.ToList();
+
+            var ListaEmpleados = new SelectList(CodigoE, "CodigoE", "CodigoE");
+            ViewBag.CodigoE = ListaEmpleados;
+
             return View();
         }
 
@@ -77,6 +82,12 @@ namespace Proyecto_Final_6.Controllers
         // GET: Salidas/Edit/5
         public ActionResult Edit(int? id)
         {
+
+            var CodigoE = db.EmpleadosSet.ToList();
+
+            var ListaEmpleados = new SelectList(CodigoE, "CodigoE", "CodigoE");
+            ViewBag.CodigoE = ListaEmpleados;
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

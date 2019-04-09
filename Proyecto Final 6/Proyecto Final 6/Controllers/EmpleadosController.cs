@@ -42,6 +42,20 @@ namespace Proyecto_Final_6.Controllers
             return View(query.ToList());
         }
 
+        public ActionResult EntradaMes(string searchString)
+        {
+            var students = from s in db.EmpleadosSet
+                           select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                students = students.Where(s => s.FechaIngreso.Month.ToString() == searchString);
+
+            }
+
+            return View(students.ToList());
+        }
+
         // GET: Empleados/Details/5
         public ActionResult Details(int? id)
         {
@@ -85,6 +99,10 @@ namespace Proyecto_Final_6.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                empleados.FechaIngreso = DateTime.Now;
+
+
                 db.EmpleadosSet.Add(empleados);
                 db.SaveChanges();
                 return RedirectToAction("Index");
