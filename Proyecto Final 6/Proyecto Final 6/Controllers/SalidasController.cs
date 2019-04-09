@@ -71,6 +71,10 @@ namespace Proyecto_Final_6.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                salidas.CodigoE = Convert.ToInt16(TempData["P"]); ;
+
+
                 db.SalidasSet.Add(salidas);
                 db.SaveChanges();
                 return RedirectToAction("Index");

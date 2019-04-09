@@ -167,7 +167,9 @@
                                             <td>
                                                 @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @style = "color:#ff8000;" }) |
                                                 @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @style = "color:#ff8000;" }) |
-                                                @Html.ActionLink("Borrar", "Delete", new { id = item.Id }, new { @style = "color:#ff8000;" })
+                                                @Html.ActionLink("Borrar", "Delete", new { id = item.Id }, new { @style = "color:#ff8000;" }) |
+                                                @Html.ActionLink("Inactivar", "Delete2", new { id = item.Id }, new { @style = "color:#ff8000;" })
+
                                             </td>
                                         </tr>
                                     }

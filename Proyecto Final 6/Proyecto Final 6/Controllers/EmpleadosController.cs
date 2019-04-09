@@ -14,6 +14,63 @@ namespace Proyecto_Final_6.Controllers
     {
         private Model1Container db = new Model1Container();
 
+        // ALGO SUPER DIFICIL
+/*
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete2(int? id,[Bind(Include = "Estatus")] Empleados empleados)
+        {
+
+            ViewBag.P = id;
+
+            if (ModelState.IsValid)
+            {
+
+                empleados.Estatus = "Inactivo";
+
+
+                db.EmpleadosSet.Add(empleados);
+                db.SaveChanges();
+                return RedirectToAction("EntradaMes", "Empleados");
+            }
+
+            return View(empleados);
+        }
+        */
+        // GET: Salidas/Edit/5
+        public ActionResult Delete2(int? id, [Bind(Include = "Estatus")] Empleados empleados)
+        {
+
+            var query = (from a in db.EmpleadosSet
+                         where a.Id == id
+                         select a.CodigoE).First();
+
+            TempData.Add("P", query);
+
+            ViewBag.P = id;
+
+            if (ModelState.IsValid)
+            {
+
+                empleados = db.EmpleadosSet.Find(id);
+                empleados.Estatus = "Inactivo";
+                db.Entry(empleados).State = EntityState.Modified;
+                db.SaveChanges();
+
+                return RedirectToAction("Create", "Salidas");
+
+            }
+
+            return RedirectToAction("Create", "Salidas");
+
+        }
+
+
+
+        // EXPERIMENTAL, NO INTENTAR EN CASA
+
+
+
         // GET: Empleados
         public ActionResult Index()
         {
@@ -101,6 +158,7 @@ namespace Proyecto_Final_6.Controllers
             {
 
                 empleados.FechaIngreso = DateTime.Now;
+                empleados.Estatus = "Activo";
 
 
                 db.EmpleadosSet.Add(empleados);
@@ -153,6 +211,9 @@ namespace Proyecto_Final_6.Controllers
             return View(empleados);
         }
 
+        // REAL NO TOCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR
+
+
         // GET: Empleados/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -179,6 +240,7 @@ namespace Proyecto_Final_6.Controllers
             return RedirectToAction("Index");
         }
 
+    
         protected override void Dispose(bool disposing)
         {
             if (disposing)
